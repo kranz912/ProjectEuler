@@ -11,7 +11,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 ```python
 sum =0;
-for x in range(1,1000):
+for x in range(3,1000):
     if(x%3==0 or x%5 == 0):
         sum+=x
 print(sum)
@@ -83,14 +83,15 @@ def CheckIfNumberIsPalindrome(x):
         Reverse = (Reverse *10) + Reminder
         Number= Number//10
     return x==Reverse
-def getLargestPalindrome():
+def getLargestPalindrome(min,max):
     largest=0
-    for x in range(100,1000):
-        for y in range(100,1000):
+    for x in range(min,max):
+        for y in range(min,max):
             product= y*x
             isPalindrome = CheckIfNumberIsPalindrome(product)
             if(isPalindrome):
                 if(product>largest):
                     largest= product
     return largest
-print(getLargestPalindrome())
+print(getLargestPalindrome(100,1000))
+```
