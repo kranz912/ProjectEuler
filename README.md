@@ -73,7 +73,7 @@ we only incremented 3 times in this case and log 8 base 2 is = 3
 ### Problem 4: 	Largest palindrome product
 A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 Find the largest palindrome made from the product of two 3-digit numbers.
-
+#### Solution 1
 ```python
 def CheckIfNumberIsPalindrome(x):
     Reverse=0
@@ -95,3 +95,32 @@ def getLargestPalindrome(min,max):
     return largest
 print(getLargestPalindrome(100,1000))
 ```
+the above solution is slower since it checks the digits twice. ex y=200 x=300 y*x =600, and y=300 x=200 y\*x= 600
+reversing the digits when checking if it is a palindrome will have a runtime complexity of O(k) where k is the number of digits.
+Instead we can convert it to a string and compare the first element to the last element that way we can have a runtime complexity of O(k/2) which is applied to solution 2.
+#### Solution 2
+```python
+def CheckIfNumberIsPalindrome(x):
+    ispalindrome=True
+    i=0
+    x=str(x)
+    while((i<len(x)/2) and ispalindrome):
+        if(x[i]!=x[-(i+1)]):
+            ispalindrome= False
+        i+=1
+    return ispalindrome
+def getLargestPalindrome(min,max):
+    largest=0
+    for x in range(max,min,-1):
+        for y in range(x,min,-1):
+            product= y*x
+            if (product > largest):
+                isPalindrome = CheckIfNumberIsPalindrome(product)
+                if(isPalindrome):
+                    largest= product
+            else:
+                break
+    return largest
+print(getLargestPalindrome(100,1000))
+```
+
