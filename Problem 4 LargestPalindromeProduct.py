@@ -1,5 +1,3 @@
-import threading
-lock = threading.Lock()
 def CheckIfNumberIsPalindrome(x):
     Reverse=0
     Number=x
@@ -17,7 +15,5 @@ def getLargestPalindrome():
             if(isPalindrome):
                 if(product>largest):
                     largest= product
-                    print(largest)
     return largest
-
-getLargestPalindrome()
+print(getLargestPalindrome())
