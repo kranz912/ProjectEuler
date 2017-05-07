@@ -95,7 +95,7 @@ def getLargestPalindrome(min,max):
     return largest
 print(getLargestPalindrome(100,1000))
 ```
-the above solution is slower since it checks the digits twice. ex y=200 x=300 y*x =600, and y=300 x=200 y\*x= 600
+The above solution is slower since it checks the digits twice. ex y=200 x=300 y*x =600, and y=300 x=200 y\*x= 600
 reversing the digits when checking if it is a palindrome will have a runtime complexity of O(k) where k is the number of digits.
 Instead we can convert it to a string and compare the first element to the last element that way we can have a runtime complexity of O(k/2) which is applied to solution 2.
 #### Solution 2
