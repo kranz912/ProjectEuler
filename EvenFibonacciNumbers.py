@@ -1,5 +1,6 @@
 numbers=[0,1];
 x=0;
+sum=0
 while(True):
     if(x!=0):
         n= numbers[x] + numbers[x-1]
@@ -7,5 +8,7 @@ while(True):
             break
         numbers.append(n)
         if(n%2==0):
-            print(n)
+            sum+=n;
     x += 1
+
+print(sum)
