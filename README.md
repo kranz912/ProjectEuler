@@ -59,3 +59,15 @@ def getprimefactors(x):
     return largest
 print(getprimefactors(13195))
 ```
+
+Since we continue to divide the input the solution has a runtime of O(log n).
+example:
+```python
+x=8
+x/2 = 4 largest= 2
+x/2 = 2 largest =2
+x/2 = 1 largest =2
+```
+we only incremented 3 times in this case and log 8 base 2 is = 3
+
+
