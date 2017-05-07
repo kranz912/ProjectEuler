@@ -1,4 +1,4 @@
-numbers=[0,1];
+numbers=[1,1];
 x=0;
 sum=0
 while(True):
@@ -10,5 +10,4 @@ while(True):
         if(n%2==0):
             sum+=n;
     x += 1
-
 print(sum)
