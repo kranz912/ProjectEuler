@@ -6,14 +6,14 @@ def CheckIfNumberIsPalindrome(x):
         Reverse = (Reverse *10) + Reminder
         Number= Number//10
     return x==Reverse
-def getLargestPalindrome():
+def getLargestPalindrome(min,max):
     largest=0
-    for x in range(100,1000):
-        for y in range(100,1000):
+    for x in range(min,max):
+        for y in range(min,max):
             product= y*x
             isPalindrome = CheckIfNumberIsPalindrome(product)
             if(isPalindrome):
                 if(product>largest):
                     largest= product
     return largest
-print(getLargestPalindrome())
+print(getLargestPalindrome(100,1000))
