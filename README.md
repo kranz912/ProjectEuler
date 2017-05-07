@@ -70,4 +70,27 @@ x/2 = 1 largest =2
 ```
 we only incremented 3 times in this case and log 8 base 2 is = 3
 
+### Problem 4
+A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+Find the largest palindrome made from the product of two 3-digit numbers.
 
+```python
+def CheckIfNumberIsPalindrome(x):
+    Reverse=0
+    Number=x
+    while(Number>0):
+        Reminder = Number%10
+        Reverse = (Reverse *10) + Reminder
+        Number= Number//10
+    return x==Reverse
+def getLargestPalindrome():
+    largest=0
+    for x in range(100,1000):
+        for y in range(100,1000):
+            product= y*x
+            isPalindrome = CheckIfNumberIsPalindrome(product)
+            if(isPalindrome):
+                if(product>largest):
+                    largest= product
+    return largest
+print(getLargestPalindrome())
