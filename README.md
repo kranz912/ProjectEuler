@@ -123,4 +123,81 @@ def getLargestPalindrome(min,max):
     return largest
 print(getLargestPalindrome(100,1000))
 ```
+### Problem 5: Smallest Multiple
+2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+```python
+i=20
+while(True):
+    if(i%20==0 and i%19==0 and i%18==0 and i%17==0 and i%16==0 and i%15==0 and i%14==0 and i%13==0 and i%12==0 and i%11==0):
+        break
+    i+=20
+print(i)
+```
 
+### Problem 6: Sum Square Difference
+The sum of the squares of the first ten natural numbers is,
+
+1^2 + 2^2 + ... + 10^2 = 385
+The square of the sum of the first ten natural numbers is,
+
+(1 + 2 + ... + 10)^2 = 55^2 = 3025
+Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
+
+Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+#### Solution 1:
+```python
+sumofSqr=0
+sum=0
+SqrofSum=0
+for x in range(1,101):
+    sumofSqr+=x*x
+    sum+=x
+    print(x)
+SqrofSum= sum*sum;
+diff = SqrofSum-sumofSqr
+print(diff)
+```
+
+#### Solution 2:
+```python
+limit =100
+sum1= limit*(limit+1)/2
+sum_sq= (2*limit+1)*(limit+1)*limit/6
+print(sum1*sum1-sum_sq)
+```
+
+### Problem 7: 10001st Prime
+By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+What is the 10001st prime number?
+
+```python
+import math
+def getprimefactors(x):
+    largest=1
+    while(x%2==0):
+        x=x/2
+        largest=2
+    for i in range(3,int(math.sqrt(x))+1,2):
+        while(x%i==0):
+            largest=i
+            x=x/i
+    x=int(x)
+    if(x>2):
+        largest=x
+    return largest
+def checkIfPrime(n):
+    if(getprimefactors(n)==n):
+        return True
+    return False
+x=0
+y=2
+while(True):
+    if(checkIfPrime(y)):
+        x+=1
+        print("{0}:{1}".format(x,y))
+    if(x==10001):
+        break
+    y+=1
+print(y)
+```

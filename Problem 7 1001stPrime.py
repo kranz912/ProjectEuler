@@ -12,4 +12,17 @@ def getprimefactors(x):
     if(x>2):
         largest=x
     return largest
-print(getprimefactors(600851475143))
+def checkIfPrime(n):
+    if(getprimefactors(n)==n):
+        return True
+    return False
+x=0
+y=2
+while(True):
+    if(checkIfPrime(y)):
+        x+=1
+        print("{0}:{1}".format(x,y))
+    if(x==10001):
+        break
+    y+=1
+print(y)
